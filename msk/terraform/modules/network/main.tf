@@ -2,7 +2,7 @@ provider "aws" {
   region = var.region
 }
 
-# Create a VPC for MSK
+# dedicated VPC for MSK
 resource "aws_vpc" "msk_vpc" {
   cidr_block = var.vpc_cidr
   tags = {
@@ -21,7 +21,6 @@ resource "aws_subnet" "msk_subnets" {
   }
 }
 
-# Security group for MSK cluster
 resource "aws_security_group" "msk_sg" {
   vpc_id = aws_vpc.msk_vpc.id
   tags = {

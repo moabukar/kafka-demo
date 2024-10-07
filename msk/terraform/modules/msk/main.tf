@@ -2,7 +2,6 @@ provider "aws" {
   region = var.region
 }
 
-# MSK Cluster
 resource "aws_msk_cluster" "msk_cluster" {
   cluster_name           = var.cluster_name
   kafka_version          = var.kafka_version
@@ -30,7 +29,6 @@ resource "aws_msk_cluster" "msk_cluster" {
   }
 }
 
-# CloudWatch Logs for MSK
 resource "aws_cloudwatch_log_group" "msk_log_group" {
   name              = "/aws/msk/${var.cluster_name}"
   retention_in_days = 7
