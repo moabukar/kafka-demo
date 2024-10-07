@@ -10,7 +10,6 @@ resource "aws_vpc" "msk_vpc" {
   }
 }
 
-# Create subnets in different availability zones
 resource "aws_subnet" "msk_subnets" {
   count             = 3
   vpc_id            = aws_vpc.msk_vpc.id
@@ -44,4 +43,6 @@ resource "aws_security_group" "msk_sg" {
   }
 }
 
-data "aws_availability_zones" "available" {}
+data "aws_availability_zones" "available" {
+  state = "available"
+}

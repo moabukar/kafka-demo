@@ -1,10 +1,21 @@
-resource "aws_instance" "kafka_client" {
-  ami                = "ami-0abcdef1234567890" # Replace with a valid Amazon Linux 2 AMI ID in your region
-  instance_type      = "t2.micro"
-  subnet_id          = element(module.network.subnet_ids, 0)
-  security_group_ids = [module.network.security_group_id]
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
 
-  key_name = "coderco-key" # Replace with your actual key pair
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-kernel-*-hvm-*-x86_64-gp2"]
+  }
+}
+
+# EC2 instance to act as Kafka client
+resource "aws_instance" "kafka_client" {
+  ami                    = data.aws_ami.amazon_linux.id
+  instance_type          = "t2.micro"
+  subnet_id              = element(module.network.subnet_ids, 0)
+  vpc_security_group_ids = [module.network.security_group_id]
+
+  key_name = "your-key-pair" # Replace with your actual key pair
 
   user_data = <<-EOF
     #!/bin/bash

@@ -1,16 +1,16 @@
 variable "region" {
   description = "The AWS region to deploy MSK"
-  default     = "us-west-2"
+  default     = "eu-west-2"
 }
 
 variable "cluster_name" {
   description = "Name of the MSK cluster"
-  default     = "my-msk-cluster"
+  default     = "msk-cluster"
 }
 
 variable "kafka_version" {
   description = "The version of Kafka to use in MSK"
-  default     = "2.8.1"
+  default     = "3.2.0"
 }
 
 variable "broker_count" {
