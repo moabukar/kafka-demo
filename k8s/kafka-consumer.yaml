@@ -12,7 +12,7 @@ spec:
     - -c
     args:
     - |
-      bin/kafka-console-consumer.sh --bootstrap-server my-cluster-kafka-bootstrap:9092 --topic my-topic --from-beginning
+      bin/kafka-console-consumer.sh --bootstrap-server my-kafka-cluster-kafka-bootstrap:9092 --topic my-topic --from-beginning
     tty: true
     stdin: true
-    restartPolicy: Never
+  restartPolicy: Never

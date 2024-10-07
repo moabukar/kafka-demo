@@ -12,7 +12,7 @@ spec:
     - -c
     args:
     - |
-      bin/kafka-console-producer.sh --broker-list my-cluster-kafka-bootstrap:9092 --topic my-topic
+      bin/kafka-console-producer.sh --broker-list my-kafka-cluster-kafka-bootstrap:9092 --topic my-topic
     tty: true
     stdin: true
   restartPolicy: Never
