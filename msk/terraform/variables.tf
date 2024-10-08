@@ -1,6 +1,6 @@
 variable "region" {
   description = "The AWS region"
-  default     = "us-west-2"
+  default     = "eu-west-2"
 }
 
 variable "vpc_cidr" {
@@ -15,7 +15,7 @@ variable "subnet_count" {
 
 variable "cluster_name" {
   description = "Name of the MSK cluster"
-  default     = "my-msk-cluster"
+  default     = "msk-demo"
 }
 
 variable "kafka_version" {
